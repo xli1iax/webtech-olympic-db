@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/register.php';
+require_once __DIR__ . '/gpt.php';
 
 // ================== FUNKCIE NA PRÁCU S KRAJINAMI ==================
 function getOrCreateCountry(PDO $pdo, string $name): int {
@@ -385,6 +386,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['csv_file'])) {
     </style>
 </head>
 <body>
+    <main>
+
+        <?php
+        session_start();
+
+        if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true ) {
+            // Pouzivatel nie je prihlaseny, zobraz odkazy na prihlasovaci a registracny formular.
+            echo '<p>Pre pokračovanie sa prosím <a href="login.php">prihláste</a> alebo sa <a href="register.php">zaregistrujte</a>.</p>';
+        } else {
+            // Pouzivatel je prihlaseny, zobraz jeho meno a odkazy na zabezpecene stranky.
+            echo '<h3>Vitaj ' . $_SESSION['full_name'] . ' </h3>';
+            echo '<a href="restricted.php">Zabezpečená stránka</a>';
+        }
+
+        ?>
+    </main>
 <h1>CSV Upload + Databáza</h1>
 
 <div class="status <?php echo $conn ? 'ok' : 'err'; ?>">
