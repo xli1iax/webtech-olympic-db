@@ -8,5 +8,4 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
-register.php
-utils.php
+src/private/client_secret.json
