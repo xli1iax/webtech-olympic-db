@@ -72,6 +72,13 @@ function isInvalidPassword(string $password, string $password_repeat): bool {
     return $password !== $password_repeat;
 }
 
+function checkPasswordLength(string $password): bool {
+    return strlen($password) >= 8
+        && preg_match('/[a-z]/', $password)   // хотя бы 1 маленькая
+        && preg_match('/[A-Z]/', $password)   // хотя бы 1 большая
+        && preg_match('/[0-9]/', $password);  // хотя бы 1 цифра
+}
+
 /**
  * Ulozenie zaznamu o prihlaseni do tabulky login_history.
  *
