@@ -201,7 +201,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php endif; ?>
         </div>
     </div>
-
     <script src="js/register.js"></script>
 </body>
 </html>

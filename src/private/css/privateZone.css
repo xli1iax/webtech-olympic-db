@@ -1,369 +1,369 @@
 
-        /* Vsetky styly zostavaju bez zmeny */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* Vsetky styly zostavaju bez zmeny */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-            background: #f3e8ff;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-            color: #2d1b4e;
-        }
+body {
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    background: #f3e8ff;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    color: #2d1b4e;
+}
 
-        h1 {
-            color: #2d1b4e;
-            border-bottom: 3px solid #8b5cf6;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
+h1 {
+    color: #2d1b4e;
+    border-bottom: 3px solid #8b5cf6;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
 
-        /* status a welcome blok */
-        .status, .welcome {
-            padding: 15px;
-            border-radius: 20px;
-            margin: 20px 0;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
-        }
+/* status a welcome blok */
+.status, .welcome {
+    padding: 15px;
+    border-radius: 20px;
+    margin: 20px 0;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
+}
 
-        .status.ok {
-            background: rgba(212, 237, 218, 0.9);
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
+.status.ok {
+    background: rgba(212, 237, 218, 0.9);
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
 
-        .status.err {
-            background: rgba(248, 215, 218, 0.9);
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
+.status.err {
+    background: rgba(248, 215, 218, 0.9);
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
 
-        .welcome {
-            background: rgba(255, 255, 255, 0.8);
-            border-left: 4px solid #8b5cf6;
-        }
+.welcome {
+    background: rgba(255, 255, 255, 0.8);
+    border-left: 4px solid #8b5cf6;
+}
 
-        .welcome a {
-            color: #8b5cf6;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.welcome a {
+    color: #8b5cf6;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        .success, .error {
-            padding: 15px;
-            border-radius: 20px;
-            margin: 20px 0;
-            backdrop-filter: blur(5px);
-        }
-        .success {
-            background: rgba(212, 237, 218, 0.9);
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        .error {
-            background: rgba(248, 215, 218, 0.9);
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
+.success, .error {
+    padding: 15px;
+    border-radius: 20px;
+    margin: 20px 0;
+    backdrop-filter: blur(5px);
+}
+.success {
+    background: rgba(212, 237, 218, 0.9);
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.error {
+    background: rgba(248, 215, 218, 0.9);
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
 
-        /* Formular pre nahratie suboru */
-        .form-group {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(5px);
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
-            margin: 25px 0;
-            border: 1px solid rgba(255,255,255,0.6);
-        }
+/* Formular pre nahratie suboru */
+.form-group {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+    margin: 25px 0;
+    border: 1px solid rgba(255,255,255,0.6);
+}
 
-        input[type="file"] {
-            padding: 10px 12px;
-            border: 2px solid #e0d6f0;
-            border-radius: 30px;
-            font-size: 14px;
-            background: white;
-            transition: border-color 0.2s;
-            width: 300px;
-        }
-        input[type="file"]:focus {
-            border-color: #8b5cf6;
-            outline: none;
-        }
+input[type="file"] {
+    padding: 10px 12px;
+    border: 2px solid #e0d6f0;
+    border-radius: 30px;
+    font-size: 14px;
+    background: white;
+    transition: border-color 0.2s;
+    width: 300px;
+}
+input[type="file"]:focus {
+    border-color: #8b5cf6;
+    outline: none;
+}
 
-        button {
-            padding: 10px 24px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 15px;
-            font-weight: 500;
-            transition: background 0.2s, transform 0.1s;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
+button {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
-        button[type="submit"]:not(.btn-danger) {
-            background: #8b5cf6;
-            color: white;
-        }
-        button[type="submit"]:not(.btn-danger):hover {
-            background: #7c3aed;
-            transform: scale(1.02);
-        }
+button[type="submit"]:not(.btn-danger) {
+    background: #8b5cf6;
+    color: white;
+}
+button[type="submit"]:not(.btn-danger):hover {
+    background: #7c3aed;
+    transform: scale(1.02);
+}
 
-        .btn-danger {
-            background: #dc3545;
-            color: white;
-        }
-        .btn-danger:hover {
-            background: #c82333;
-            transform: scale(1.02);
-        }
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+.btn-danger:hover {
+    background: #c82333;
+    transform: scale(1.02);
+}
 
-        /* Checkbox pre potvrdenie vymazania */
-        label {
-            font-weight: 500;
-            color: #2d1b4e;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin: 10px 0;
-        }
-        input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: #8b5cf6;
-        }
+/* Checkbox pre potvrdenie vymazania */
+label {
+    font-weight: 500;
+    color: #2d1b4e;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+}
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #8b5cf6;
+}
 
-        /* Kontajner pre tabulku s moznostou horizontalneho scrollovania */
-        .table-container {
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
-            margin: 25px 0;
-            overflow-x: auto;
-        }
+/* Kontajner pre tabulku s moznostou horizontalneho scrollovania */
+.table-container {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+    margin: 25px 0;
+    overflow-x: auto;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 800px; /* vynutime horizontalny scroll na malych obrazovkach */
-        }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px; /* vynutime horizontalny scroll na malych obrazovkach */
+}
 
-        th {
-            background: #7c3aed;
-            color: white;
-            padding: 14px 12px;
-            text-align: left;
-            font-weight: 600;
-        }
+th {
+    background: #7c3aed;
+    color: white;
+    padding: 14px 12px;
+    text-align: left;
+    font-weight: 600;
+}
 
-        /* Zaoblenie hornych rohov hlavicky */
-        th:first-child {
-            border-top-left-radius: 20px;
-        }
-        th:last-child {
-            border-top-right-radius: 20px;
-        }
+/* Zaoblenie hornych rohov hlavicky */
+th:first-child {
+    border-top-left-radius: 20px;
+}
+th:last-child {
+    border-top-right-radius: 20px;
+}
 
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #e0d6f0;
-            color: #2d1b4e;
-        }
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e0d6f0;
+    color: #2d1b4e;
+}
 
-        tr:hover {
-            background: #f3e8ff;
-        }
+tr:hover {
+    background: #f3e8ff;
+}
 
-        /* Stylovanie prvkov DataTables */
-        .dataTables_wrapper .dataTables_length {
-            margin-bottom: 15px;
-            text-align: left;
-        }
+/* Stylovanie prvkov DataTables */
+.dataTables_wrapper .dataTables_length {
+    margin-bottom: 15px;
+    text-align: left;
+}
 
-        .dataTables_wrapper .dataTables_length label {
-            font-weight: 500;
-            color: #2d1b4e;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 8px 14px;
-            border-radius: 30px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-        }
+.dataTables_wrapper .dataTables_length label {
+    font-weight: 500;
+    color: #2d1b4e;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 14px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
 
-        .dataTables_wrapper .dataTables_length select {
-            padding: 8px 12px;
-            border: 2px solid #e0d6f0;
-            border-radius: 20px;
-            background: white;
-            color: #2d1b4e;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
+.dataTables_wrapper .dataTables_length select {
+    padding: 8px 12px;
+    border: 2px solid #e0d6f0;
+    border-radius: 20px;
+    background: white;
+    color: #2d1b4e;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
 
-        .dataTables_wrapper .dataTables_length select:focus {
-            border-color: #8b5cf6;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
-        }
+.dataTables_wrapper .dataTables_length select:focus {
+    border-color: #8b5cf6;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+}
 
-        .dataTables_wrapper .dataTables_filter {
-            margin-bottom: 15px;
-            text-align: right;
-        }
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 15px;
+    text-align: right;
+}
 
-        .dataTables_wrapper .dataTables_filter label {
-            font-weight: 500;
-            color: #2d1b4e;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
+.dataTables_wrapper .dataTables_filter label {
+    font-weight: 500;
+    color: #2d1b4e;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
 
-        .dataTables_wrapper .dataTables_filter input[type="search"] {
-            padding: 10px 15px;
-            border: 2px solid #e0d6f0;
-            border-radius: 30px;
-            font-size: 14px;
-            width: 250px;
-            background: white;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
+.dataTables_wrapper .dataTables_filter input[type="search"] {
+    padding: 10px 15px;
+    border: 2px solid #e0d6f0;
+    border-radius: 30px;
+    font-size: 14px;
+    width: 250px;
+    background: white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
 
-        .dataTables_wrapper .dataTables_filter input[type="search"]:focus {
-            border-color: #8b5cf6;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
-        }
+.dataTables_wrapper .dataTables_filter input[type="search"]:focus {
+    border-color: #8b5cf6;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+}
 
-        /* Pridanie ikonky lupy k vyhladavaciemu polu */
-        .dataTables_wrapper .dataTables_filter label:before {
-            font-family: "Font Awesome 6 Free";
-            content: "\f002";
-            font-weight: 900;
-            color: #8b5cf6;
-            margin-right: 5px;
-        }
+/* Pridanie ikonky lupy k vyhladavaciemu polu */
+.dataTables_wrapper .dataTables_filter label:before {
+    font-family: "Font Awesome 6 Free";
+    content: "\f002";
+    font-weight: 900;
+    color: #8b5cf6;
+    margin-right: 5px;
+}
 
-        .dataTables_wrapper .dataTables_paginate {
-            margin-top: 20px;
-            text-align: center;
-        }
+.dataTables_wrapper .dataTables_paginate {
+    margin-top: 20px;
+    text-align: center;
+}
 
-        .dataTables_wrapper .dataTables_paginate .paginate_button {
-            background: #ede9fe !important;
-            color: #5b21b6 !important;
-            border: none !important;
-            border-radius: 20px !important;
-            padding: 6px 14px !important;
-            margin: 0 4px !important;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    background: #ede9fe !important;
+    color: #5b21b6 !important;
+    border: none !important;
+    border-radius: 20px !important;
+    padding: 6px 14px !important;
+    margin: 0 4px !important;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
 
-        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-            background: #c4b5fd !important;
-            color: #2d1b4e !important;
-            transform: scale(1.05);
-        }
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: #c4b5fd !important;
+    color: #2d1b4e !important;
+    transform: scale(1.05);
+}
 
-        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-            background: #8b5cf6 !important;
-            color: white !important;
-            font-weight: 600;
-        }
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: #8b5cf6 !important;
+    color: white !important;
+    font-weight: 600;
+}
 
-        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-        }
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
 
-        .dataTables_wrapper .dataTables_paginate .paginate_button.next,
-        .dataTables_wrapper .dataTables_paginate .paginate_button.previous {
-            background: #ddd6fe !important;
-            font-weight: 600;
-        }
+.dataTables_wrapper .dataTables_paginate .paginate_button.next,
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous {
+    background: #ddd6fe !important;
+    font-weight: 600;
+}
 
-        .dataTables_wrapper .dataTables_info {
-            padding-top: 15px;
-            color: #2d1b4e;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
+.dataTables_wrapper .dataTables_info {
+    padding-top: 15px;
+    color: #2d1b4e;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
 
-        /* Blok pre neprihlaseneho pouzivatela */
-        .auth-required {
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 30px 25px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            text-align: center;
-            color: #2d1b4e;
-        }
+/* Blok pre neprihlaseneho pouzivatela */
+.auth-required {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px 25px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    text-align: center;
+    color: #2d1b4e;
+}
 
-        .auth-required i {
-            font-size: 3rem;
-            color: #8b5cf6;
-            margin-bottom: 15px;
-            display: block;
-        }
+.auth-required i {
+    font-size: 3rem;
+    color: #8b5cf6;
+    margin-bottom: 15px;
+    display: block;
+}
 
-        .auth-required p {
-            font-size: 1.1rem;
-            line-height: 1.5;
-            margin-bottom: 10px;
-        }
+.auth-required p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
 
-        .auth-required a {
-            color: #8b5cf6;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0 3px;
-            transition: color 0.2s;
-        }
+.auth-required a {
+    color: #8b5cf6;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0 3px;
+    transition: color 0.2s;
+}
 
-        .auth-required a:hover {
-            color: #7c3aed;
-            text-decoration: underline;
-        }
+.auth-required a:hover {
+    color: #7c3aed;
+    text-decoration: underline;
+}
 
-        /* Responzivne upravy */
-        @media (max-width: 768px) {
-            body { padding: 0 15px; }
-            h1 { font-size: 2rem; }
-            .dataTables_wrapper .dataTables_length,
-            .dataTables_wrapper .dataTables_filter {
-                float: none;
-                text-align: center;
-            }
-            .dataTables_wrapper .dataTables_length label,
-            .dataTables_wrapper .dataTables_filter label {
-                justify-content: center;
-                width: 100%;
-            }
-            .dataTables_wrapper .dataTables_filter input[type="search"] {
-                width: 100%;
-                max-width: 280px;
-            }
-        }
+/* Responzivne upravy */
+@media (max-width: 768px) {
+    body { padding: 0 15px; }
+    h1 { font-size: 2rem; }
+    .dataTables_wrapper .dataTables_length,
+    .dataTables_wrapper .dataTables_filter {
+        float: none;
+        text-align: center;
+    }
+    .dataTables_wrapper .dataTables_length label,
+    .dataTables_wrapper .dataTables_filter label {
+        justify-content: center;
+        width: 100%;
+    }
+    .dataTables_wrapper .dataTables_filter input[type="search"] {
+        width: 100%;
+        max-width: 280px;
+    }
+}
 
-        @media (max-width: 480px) {
-            h1 { font-size: 1.7rem; }
-            .btn { width: 100%; }
-        }
+@media (max-width: 480px) {
+    h1 { font-size: 1.7rem; }
+    .btn { width: 100%; }
+}

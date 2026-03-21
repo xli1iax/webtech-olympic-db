@@ -280,7 +280,6 @@ try {
         <span style="margin-right: 20px;">Táto webová stránka používa cookies na ukladanie osobných informácií. Pokračovaním súhlasíte s ich používaním.</span>
         <button id="cookies-accept" style="background: #c7b4e7; color: white; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; font-size: 14px;">Súhlasím</button>
     </div>
-
     <script src="js/index.js"></script>
 </body>
 </html>

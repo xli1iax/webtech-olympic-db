@@ -78,7 +78,6 @@ function checkPasswordLength(string $password): bool {
         && preg_match('/[A-Z]/', $password)   // хотя бы 1 большая
         && preg_match('/[0-9]/', $password);  // хотя бы 1 цифра
 }
-
 /**
  * Ulozenie zaznamu o prihlaseni do tabulky login_history.
  *

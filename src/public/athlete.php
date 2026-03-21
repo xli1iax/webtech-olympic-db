@@ -157,6 +157,7 @@ try {
                     </tbody>
                 </table>
             </div>
+            
         <?php endif; ?>
     </div>
 </body>

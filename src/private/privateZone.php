@@ -393,7 +393,6 @@ if (isset($_POST['delete_all'])) {
 
     <!-- Vypis sprav (uspech / chyba) ak existuju -->
     <?php if (isset($message)) echo $message; ?>
-
     <!-- Tabulka s prave nahranymi datami z CSV (zobrazi sa len ak su data) -->
     <?php if ($conn && !empty($data)): ?>
        
