@@ -31,6 +31,7 @@ $isLoggedIn = isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true;
             <i class="fas fa-lock"></i>
             <p>Pre pokračovanie sa prosím <a href="login.php">prihláste</a> alebo sa <a href="register.php">zaregistrujte</a>.</p>
         </div>
+        <?php exit; ?>
     <?php endif; ?>
     
     <h1>JSON Upload + Databáza</h1>

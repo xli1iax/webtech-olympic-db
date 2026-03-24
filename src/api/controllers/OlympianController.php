@@ -39,6 +39,10 @@ class OlympianController {
 }
     private function convertDate(?string $date): ?string {
     if (empty($date)) return null;
+    // format YYYY-MM-DD
+    if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+        return $date;
+    }
     $parts = explode('.', trim($date));
     if (count($parts) === 3) {
         $day = str_pad((int)$parts[0], 2, '0', STR_PAD_LEFT);
@@ -94,52 +98,47 @@ class OlympianController {
     // POST /api/olympians
     public function create()
     {
-        $data = json_decode(file_get_contents("php://input"), true);
-        if (
-            !isset($data["first_name"]) || !isset($data["last_name"]) ||
-            !isset($data["birth_date"]) || !isset($data["birth_place"]) ||
-            !isset($data["birth_country"]) || !isset($data["medal"])
-        ) {
-            Response::json(["error" => "Missing required fields"], 400);
-            return; 
-        }
-
-        $medal = $data["medal"];
-        if (
-            !isset($medal["year"]) || !isset($medal["olympic_type"]) ||
-            !isset($medal["city"]) || !isset($medal["sport"]) ||
-            !isset($medal["placing"])
-        ) {
-            Response::json(["error" => "Missing medal fields"], 400);
-        }
-
-        // Получаем ID из справочников
-        
-
-        $birthCountryId = $this->olympianModel->getOrCreateCountryId($data["birth_country"]);
-        $olympicGamesId = $this->olympianModel->getOrCreateOlympicGamesId($medal["year"], $medal["olympic_type"], $medal["city"]);
-        $disciplineId = $this->olympianModel->getOrCreateDisciplineId($medal["sport"]);
-        $medalTypeId = $this->olympianModel->getOrCreateMedalTypeId((int)$medal["placing"]);
-        
-
+        $item = json_decode(file_get_contents("php://input"), true);
        
 
-        $athleteData = [
-            "first_name" => $data["first_name"],
-            "last_name" => $data["last_name"],
-            "birth_date" => $data["birth_date"],
-            "birth_place" => $data["birth_place"],
-            "birth_country_id" => $birthCountryId,
-            "death_date" => $data["death_date"] ?? null,
-            "death_place" => $data["death_place"] ?? null,
-            "death_country_id" => null,
-        ];
+                      $missing = [];
+if (empty($item['name'])) $missing[] = 'first_name';
+if (empty($item['surname'])) $missing[] = 'last_name';
+if (empty($item["birth_country"])) $missing[] = 'birth_country';
+if (empty($item["birth_day"])) $missing[] = 'birth_day';
+if (empty($item["birth_place"])) $missing[] = 'birth_place';
+if (!empty($missing)) {
+    Response::json(["error" =>"Missing fields: " . implode(', ', $missing)]);
+    return;
+}
+                
+                if (empty($item['oh_year']) || empty($item['oh_type']) || empty($item['discipline']) || empty($item['placing']) || empty($item['oh_city']) ) {
+                    Response::json(["error" =>"Medal data incomplete"]);
+                    return;
+                }
 
-        $medalData = [
-            "olympic_games_id" => $olympicGamesId,
-            "discipline_id" => $disciplineId,
-            "medal_type_id" => $medalTypeId,
-        ];
+                // Получаем ID (код повторяет create, но можно вынести в отдельный метод)
+                $birthCountryId = $this->olympianModel->getOrCreateCountryId($item["birth_country"]);
+                $olympicGamesId = $this->olympianModel->getOrCreateOlympicGamesId($item["oh_year"], $item["oh_type"], $item["oh_city"], $item["oh_country"]);
+                $disciplineId = $this->olympianModel->getOrCreateDisciplineId($item["discipline"]);
+                $medalTypeId = $this->olympianModel->getOrCreateMedalTypeId((int)$item["placing"]);
+        
+
+                $athleteData = [
+                    "first_name" => $item['name'],
+                    "last_name" => $item['surname'],
+                    "birth_date" => $this->convertDate($item['birth_day']),
+                    "birth_place" => $item['birth_place'],
+                    "birth_country_id" => $birthCountryId,
+                    "death_date" => $this->convertDate($item['death_day']) ?? null,
+                    "death_place" => $item['death_place'] ?? null,
+                    "death_country_id" => null,
+                ];
+                $medalData = [
+                    "olympic_games_id" => $olympicGamesId,
+                    "discipline_id" => $disciplineId,
+                    "medal_type_id" => $medalTypeId,
+                ];
 
     // Спортсмен новый – создаём и его, и награду
      try {
@@ -155,7 +154,7 @@ class OlympianController {
         if ($existingAthleteId) {
             // Спортсмен есть – проверяем награду
             if ($this->olympianModel->hasMedal($existingAthleteId, $medalData['olympic_games_id'], $medalData['discipline_id'], $medalData['medal_type_id'])) {
-                throw new Exception('Athlete with this medal already exists');
+                Response::json(["error" =>"Athlete with this medal already exists"]);
             }
             // Добавляем только награду
             $medalId = $this->olympianModel->addMedal($existingAthleteId, $medalData);
@@ -172,11 +171,9 @@ class OlympianController {
             "medal_id" => $medalId
         ], 201);
     } catch (Exception $e) {
-        if ($e->getMessage() === 'Athlete with this medal already exists') {
-            Response::json(["error" => $e->getMessage()], 409);
-        } else {
+       
             Response::json(["error" => "Database error: " . $e->getMessage()], 500);
-        }
+        
     }
     }
     // POST /api/olympians/bulk
