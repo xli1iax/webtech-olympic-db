@@ -80,7 +80,52 @@ h1 {
     padding: 25px;
     box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
     margin: 25px 0;
-    border: 1px solid rgba(255,255,255,0.6);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* для адаптивности на мобильных */
+}
+
+.form-group form {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.form-group form input[type="file"] {
+    flex: 1;
+}
+
+.form-group .action-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.form-group .action-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.form-group .action-links a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+}
+
+.form-group .action-links a i {
+    font-size: 1rem;
 }
 
 input[type="file"] {
@@ -109,12 +154,12 @@ button {
 }
 
 button[type="submit"]:not(.btn-danger) {
-    background: #8b5cf6;
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
     color: white;
 }
 button[type="submit"]:not(.btn-danger):hover {
-    background: #7c3aed;
-    transform: scale(1.02);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
 }
 
 .btn-danger {
@@ -141,49 +186,6 @@ input[type="checkbox"] {
     accent-color: #8b5cf6;
 }
 
-/* Kontajner pre tabulku s moznostou horizontalneho scrollovania */
-.table-container {
-    background: white;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
-    margin: 25px 0;
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 800px; /* vynutime horizontalny scroll na malych obrazovkach */
-}
-
-th {
-    background: #7c3aed;
-    color: white;
-    padding: 14px 12px;
-    text-align: left;
-    font-weight: 600;
-}
-
-/* Zaoblenie hornych rohov hlavicky */
-th:first-child {
-    border-top-left-radius: 20px;
-}
-th:last-child {
-    border-top-right-radius: 20px;
-}
-
-td {
-    padding: 12px;
-    border-bottom: 1px solid #e0d6f0;
-    color: #2d1b4e;
-}
-
-tr:hover {
-    background: #f3e8ff;
-}
-
-/* Stylovanie prvkov DataTables */
 .dataTables_wrapper .dataTables_length {
     margin-bottom: 15px;
     text-align: left;
@@ -198,7 +200,7 @@ tr:hover {
     background: rgba(255, 255, 255, 0.9);
     padding: 8px 14px;
     border-radius: 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 7px 10px rgba(0, 0, 1, 0.08);
 }
 
 .dataTables_wrapper .dataTables_length select {
@@ -217,6 +219,10 @@ tr:hover {
     border-color: #8b5cf6;
     outline: none;
     box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+}
+
+.dataTables_wrapper .dataTables_length select:hover {
+    border-color: #c4b5fd;
 }
 
 .dataTables_wrapper .dataTables_filter {
@@ -248,7 +254,7 @@ tr:hover {
     box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
 }
 
-/* Pridanie ikonky lupy k vyhladavaciemu polu */
+/* Pridanie ikony lupy */
 .dataTables_wrapper .dataTables_filter label:before {
     font-family: "Font Awesome 6 Free";
     content: "\f002";
@@ -257,6 +263,50 @@ tr:hover {
     margin-right: 5px;
 }
 
+.olympians-table-container {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+    margin: 25px 0;
+    overflow-x: auto;  /* Horizontalny scroll pre male obrazovky */
+}
+
+#olympiansTable th {
+    background: #7c3aed;
+    color: white;
+    padding: 14px 12px;
+    text-align: left;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    border: none;
+}
+
+#olympiansTable th:first-child {
+    border-top-left-radius: 20px;
+}
+
+#olympiansTable th:last-child {
+    border-top-right-radius: 20px;
+}
+
+/* Indikatory triedenia */
+#olympiansTable th.sortable::after {
+    content: ' ↕';
+    font-size: 12px;
+    opacity: 0.7;
+    margin-left: 5px;
+    color: white;
+}
+#olympiansTable th.sort-asc::after {
+    content: ' ↑';
+}
+#olympiansTable th.sort-desc::after {
+    content: ' ↓';
+}
+
+/* Stranovanie DataTables */
 .dataTables_wrapper .dataTables_paginate {
     margin-top: 20px;
     text-align: center;
@@ -302,6 +352,47 @@ tr:hover {
     font-size: 0.95rem;
     font-weight: 500;
 }
+
+.athlete-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.athlete-link:hover {
+    border-bottom-color: #8b5cf6;
+    color: #8b5cf6;
+}
+
+/* Tlačidlo späť */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 20px 0;
+    background: #8b5cf6;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.back-link:hover {
+    background: #7c3aed;
+    transform: scale(1.02);
+}
+.back-link i {
+    font-size: 1rem;
+}
+
+/* Medailove triedy */
+.medal-gold { background-color: #ffd700; font-weight: bold; text-align: center; border-radius: 20px; }
+.medal-silver { background-color: #c0c0c0; font-weight: bold; text-align: center; border-radius: 20px; }
+.medal-bronze { background-color: #cd7f32; color: white; font-weight: bold; text-align: center; border-radius: 20px; }
+
 
 /* Blok pre neprihlaseneho pouzivatela */
 .auth-required {

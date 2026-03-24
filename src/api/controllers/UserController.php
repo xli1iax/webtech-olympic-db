@@ -22,6 +22,24 @@ class UserController {
         Response::json($users);
     }
 
+    public function me()
+    {
+        if (isset($_SESSION["user_id"])) {
+            $user = $this->userModel->getById($_SESSION["user_id"]);
+            if($user) {
+                Response::json($user, 200);
+            }
+        } else if(isset($_SESSION["email"])){
+            $user = $this->userModel->getByEmail($_SESSION["email"]);
+            $_SESSION['user_id'] = $user['id'];
+            if($user) {
+                Response::json($user, 200);
+            }
+        }
+
+        Response::json(["error"=>"user not found"], 404);
+    }
+
     public function show($id)
     {
         $user = $this->userModel->getById((int)$id);

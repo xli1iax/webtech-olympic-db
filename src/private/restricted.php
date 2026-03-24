@@ -244,14 +244,6 @@ if ($is_google_user) {
     <!-- Navigacne odkazy -->
     <p class = "back"><a href="privateZone.php"><i class="fas fa-arrow-left"></i> Späť na hlavnú stránku</a> | <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Odhlásiť sa</a></p>
 
-    <!-- <script>
-    fetch('/api/users/me', {credentials: 'include'})
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        });
-</script> -->
-
     <script src="js/restricted.js"> </script>
 </body>
 </html>
